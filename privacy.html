@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Privacy policy for the personal-use Reck Profile Backup application.">
+  <title>Privacy policy | Reck Profile Backup</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header><a class="brand" href="index.html">Reck Profile Backup</a><nav aria-label="Main navigation"><a href="index.html">Home</a><a href="privacy.html" aria-current="page">Privacy</a><a href="terms.html">Terms</a></nav></header>
+  <main>
+    <p class="eyebrow">Updated October 12, 2026</p>
+    <h1>Privacy policy</h1>
+    <p>Reck Profile Backup is a personal-use application operated by its owner on the owner's Windows computer. This policy describes the application's backup operation and Google Drive access. It is not a hosted backup service for the general public.</p>
+    <h2>Data the application accesses</h2>
+    <ul>
+      <li>Selected local source files and their names, sizes, timestamps and hashes.</li>
+      <li>Google authorization tokens needed to connect to the Drive account that the user approves.</li>
+      <li>Google Drive file and folder metadata, including names, identifiers and sizes, and the account's storage-quota information. The metadata permission can cover files outside the dedicated backup folder.</li>
+      <li>Contents of Google Drive files created by the app or otherwise authorized through its <code>drive.file</code> permission, including the uploaded archive and public recovery-tool files used for verification.</li>
+    </ul>
+    <p>The app requests <code>drive.file</code> and <code>drive.metadata.readonly</code>. It does not request access to Gmail messages, Google Calendar or Google Contacts. It does not receive the user's Google account password.</p>
+    <h2>How the data is used</h2>
+    <p>The app uses this data to create backups, upload and verify them, check available storage, recover interrupted publications, identify its owned files and enforce the selected backup retention. Cloud verification streams the downloaded encrypted backup through SHA-256 checking without saving a second full downloaded copy.</p>
+    <p>The app does not sell Google user data, use it for advertising, or send it to an AI service for model training. Its use of information received from Google APIs is limited to the backup functions described here.</p>
+    <h2>Where data is stored and shared</h2>
+    <p>Selected source files are copied into an unencrypted local working folder. Compressed archives use WinZip AE-2 AES-256 encryption, but archive filenames and cloud ownership/verification metadata are not encrypted. Local logs and manifests also contain file paths and operational metadata.</p>
+    <p>The user can enable Google Drive and Microsoft OneDrive cloud destinations and connected USB copies. The same selected local source data can be included in archives sent to each enabled destination. Google Drive authorization tokens are not shared with Microsoft or placed inside the backup archives.</p>
+    <p>Transfers use rclone running locally. Its saved OAuth configuration is encrypted with a random configuration key; that key and the unattended archive password are protected with Windows current-user DPAPI. The Google OAuth client secret is also DPAPI-protected. This does not protect against every threat to a compromised Windows account or computer.</p>
+    <p>Storage providers process the data stored with them under their own policies. The app owner does not operate a separate server that receives backup data from this application.</p>
+    <h2>Retention and deletion</h2>
+    <p>The app keeps its current local and USB archive set and the configured one to four completed weekly sets in each enabled cloud. A replacement is verified before excess older owned cloud sets are permanently removed. A journaled incomplete upload can be removed and retried only under the application's ownership and content checks. An empty journaled folder is removed using an empty-only operation.</p>
+    <p>Ordinary files deleted from the source computer remain in the saved working set until the user removes or excludes them. Revoking account access or disabling a destination does not automatically delete backups already stored there. The user can delete those backups and local program data when no longer needed, while retaining any copies they wish to keep.</p>
+    <h2>User controls</h2>
+    <p>The owner chooses source exclusions, destinations, schedule and cloud retention. Google access can be revoked through Google Account controls for connected applications. After revocation, future Google operations require reconnection; existing cloud backup files remain until deleted.</p>
+    <h2>This documentation website</h2>
+    <p>The static website has no login, upload forms, advertising, analytics scripts or cookies added by the app owner. When hosted through GitHub Pages, GitHub logs visitors' IP addresses for security purposes under its own policies. See <a href="https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages">GitHub Pages documentation</a>.</p>
+    <h2>Contact and updates</h2>
+    <p>Contact the app owner through the support email configured on the Google OAuth consent screen. This policy will be updated when the application's data practices change. The effective update date appears at the top of this page.</p>
+  </main>
+  <footer><a href="index.html">Reck Profile Backup</a> &middot; Personal-use application documentation</footer>
+</body>
+</html>
